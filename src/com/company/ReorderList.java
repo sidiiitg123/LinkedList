@@ -3,6 +3,8 @@ package com.company;
 public class ReorderList {
     public ListNode reorderList(ListNode A) {
 
+
+        //from 7-22 finding middle and separating two list
         ListNode slow = A;
         ListNode fast = A;
 
@@ -19,6 +21,7 @@ public class ReorderList {
 
         slow.next = null;
 
+        //from 24-36 reversing the second half
         ListNode current = l2;
         ListNode prev = null;
         ListNode next;

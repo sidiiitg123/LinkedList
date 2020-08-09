@@ -55,10 +55,13 @@ public class SortList {
             return root;
         }
 
+        //Procedure to find the middle of ll
         ListNode middle = getMiddle(root);
         ListNode nextToMiddle = middle.next;
 
         middle.next = null;
+
+        //merging two list
         ListNode left = mergeSort(root);
         ListNode right = mergeSort(nextToMiddle);
 

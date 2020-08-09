@@ -38,7 +38,7 @@ public class PartitionList {
         }
 
 
-        greateritr.next=null
+        greateritr.next=null;
         return greater;
     }
 }

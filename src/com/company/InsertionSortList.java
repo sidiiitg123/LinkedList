@@ -1,32 +1,49 @@
 package com.company;
 
 public class InsertionSortList {
-    ListNode newnode;
 
-    public ListNode sorted(ListNode head,ListNode newnode){
-        ListNode temp=head,p=temp;
-        if(newnode==null || temp.val<=newnode.val){
-            temp.next=newnode;
-            newnode=temp;
-        }else{
-
-        }
-
-    }
 
     public ListNode insertionSortList(ListNode A) {
 
-        if(A==null){
-            return null;
+        ListNode current = A;
+        ListNode head = A;
+        ListNode temp;
+
+        ListNode prev = A;
+
+        while(current!=null){
+            temp = current.next;
+            if(current.val < prev.val){
+                ListNode check = head;
+                ListNode checkPrev = null;
+
+                while(check!=current){
+                    if(check.val > current.val){
+                        break;
+                    }
+                    checkPrev = check;
+                    check = check.next;
+                }
+
+                if(checkPrev == null){
+                    head = current;
+                    current.next = check;
+                    prev.next = temp;
+                    current = temp;
+                }
+                else{
+                    checkPrev.next = current;
+                    current.next = check;
+                    prev.next = temp;
+                    current = temp;
+                }
+            }
+            else{
+                prev = current;
+                current = temp;
+            }
         }
 
-        ListNode head=A;
-        newnode= new ListNode(0);
-        //ListNode curr=newnode;
-
-        while(head!=null){
-
-            sorted(head,newnode);
-        }
+        return head;
     }
 }
